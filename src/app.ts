@@ -8,7 +8,7 @@ import { router } from "./app/routes";
 const app: Application = express();
 app.use(
   cors({
-    origin: ["https://assignment-6-fronend.vercel.app"],
+    origin:true,
     credentials: true,
   })
 );
