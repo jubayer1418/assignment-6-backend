@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.smartphoneRouter = void 0;
+const express_1 = require("express");
+const validateRequest_1 = __importDefault(require("../../middleware/validateRequest"));
+const user_constant_1 = require("../user/user.constant");
+const auth_1 = __importDefault(require("../../middleware/auth"));
+const smartphone_controller_1 = require("./smartphone.controller");
+const smartphone_validation_1 = require("./smartphone.validation");
+const router = (0, express_1.Router)();
+router.post("/add-product", (0, auth_1.default)(user_constant_1.USER_ROLE.manager, user_constant_1.USER_ROLE.superAdmin), (0, validateRequest_1.default)(smartphone_validation_1.ProductValidation.createEyeglassesSchema), smartphone_controller_1.createSmartphone);
+router.get("/get-all-products", (0, auth_1.default)(user_constant_1.USER_ROLE.manager, user_constant_1.USER_ROLE.user, user_constant_1.USER_ROLE.superAdmin), smartphone_controller_1.getSmartphone);
+router.get("/get-single-product/:id", (0, auth_1.default)(user_constant_1.USER_ROLE.manager, user_constant_1.USER_ROLE.user, user_constant_1.USER_ROLE.superAdmin), smartphone_controller_1.getSingleProduct);
+router.delete("/delete-product/:id", (0, auth_1.default)(user_constant_1.USER_ROLE.manager, user_constant_1.USER_ROLE.superAdmin), smartphone_controller_1.deleteSmartphone);
+router.delete("/delete-products", (0, auth_1.default)(user_constant_1.USER_ROLE.manager, user_constant_1.USER_ROLE.superAdmin), smartphone_controller_1.deleteManyProduct);
+router.put("/update-product/:id", (0, auth_1.default)(user_constant_1.USER_ROLE.manager, user_constant_1.USER_ROLE.superAdmin), smartphone_controller_1.patchSmartphone);
+exports.smartphoneRouter = router;
