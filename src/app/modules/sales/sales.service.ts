@@ -42,7 +42,7 @@ export const getSalesToDb = async (
   role: string
 ) => {
   const { filterBy } = query;
-  console.log(filterBy);
+console.log(role,email)
   let dateFilter: Record<string, unknown> = {};
 
   if (filterBy) {

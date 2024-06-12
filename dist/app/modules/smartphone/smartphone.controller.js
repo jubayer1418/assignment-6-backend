@@ -48,7 +48,6 @@ exports.getSingleProduct = (0, AsyncFun_1.AsyncFun)((req, res, next) => __awaite
     });
 }));
 exports.patchSmartphone = (0, AsyncFun_1.AsyncFun)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req.params.id, req.body);
     const result = yield (0, smartphone_service_1.patchSmartphoneToDb)(req.params.id, req.body);
     (0, sendResponse_1.default)(res, {
         success: true,

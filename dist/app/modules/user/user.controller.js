@@ -28,7 +28,6 @@ exports.userRegister = (0, AsyncFun_1.AsyncFun)((req, res, next) => __awaiter(vo
 }));
 exports.userLogin = (0, AsyncFun_1.AsyncFun)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield (0, user_service_1.createLogin)(req.body);
-    console.log(result.refreshToken);
     res.cookie("refreshToken", result.refreshToken, {
         httpOnly: true,
         secure: true,

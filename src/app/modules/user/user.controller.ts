@@ -17,7 +17,7 @@ export const userRegister = AsyncFun(async (req, res, next) => {
 });
 export const userLogin = AsyncFun(async (req, res, next) => {
   const result = await createLogin(req.body);
-  console.log(result.refreshToken);
+
   res.cookie("refreshToken", result.refreshToken, {
     httpOnly: true,
     secure: true,

@@ -10,7 +10,7 @@ export const createSmartphoneToDb = async (
   email: string
 ) => {
   const userEmail = email;
-  console.log(userEmail);
+
   const userExist = await User.findOne({ email: userEmail });
   if (!userExist) {
     throw new AppError(httpStatus.NOT_FOUND, "User not found");
@@ -48,18 +48,18 @@ export const getSmartphoneToDb = async (
     .paginate();
   let result;
   if (role === "manager") {
-    console.log("result");
+  
     result = await productQuery.modelQuery;
   } else if (role === "user") {
-    // console.log(email, role);
+  
     result = await productQuery.modelQuery;
   } else if (role === "superAdmin") {
-    // console.log(email, role);
+ 
     result = await productQuery.modelQuery;
   } else {
     throw new AppError(httpStatus.BAD_REQUEST, "Invalid user role");
   }
-  console.log(result);
+
   return result;
 };
 export const patchSmartphoneToDb = async (

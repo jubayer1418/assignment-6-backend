@@ -20,7 +20,6 @@ const user_model_1 = require("../user/user.model");
 const smartphone_model_1 = require("./smartphone.model");
 const createSmartphoneToDb = (payload, email) => __awaiter(void 0, void 0, void 0, function* () {
     const userEmail = email;
-    console.log(userEmail);
     const userExist = yield user_model_1.User.findOne({ email: userEmail });
     if (!userExist) {
         throw new AppError_1.default(http_status_1.default.NOT_FOUND, "User not found");
@@ -54,21 +53,17 @@ const getSmartphoneToDb = (query, email, role) => __awaiter(void 0, void 0, void
         .paginate();
     let result;
     if (role === "manager") {
-        console.log("result");
         result = yield productQuery.modelQuery;
     }
     else if (role === "user") {
-        // console.log(email, role);
         result = yield productQuery.modelQuery;
     }
     else if (role === "superAdmin") {
-        // console.log(email, role);
         result = yield productQuery.modelQuery;
     }
     else {
         throw new AppError_1.default(http_status_1.default.BAD_REQUEST, "Invalid user role");
     }
-    console.log(result);
     return result;
 });
 exports.getSmartphoneToDb = getSmartphoneToDb;

@@ -48,7 +48,7 @@ export const getSingleProduct = AsyncFun(async (req, res, next) => {
 });
 export const patchSmartphone = AsyncFun(
   async (req: Request, res: Response, next: NextFunction) => {
-    console.log(req.params.id, req.body);
+
     const result = await patchSmartphoneToDb(req.params.id, req.body);
     sendResponse(res, {
       success: true,

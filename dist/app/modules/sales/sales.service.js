@@ -47,7 +47,7 @@ const getSingleSaleIntoDB = (id) => __awaiter(void 0, void 0, void 0, function* 
 exports.getSingleSaleIntoDB = getSingleSaleIntoDB;
 const getSalesToDb = (query, email, role) => __awaiter(void 0, void 0, void 0, function* () {
     const { filterBy } = query;
-    console.log(filterBy);
+    console.log(role, email);
     let dateFilter = {};
     if (filterBy) {
         const currentDate = new Date();
@@ -99,7 +99,7 @@ const getSalesToDb = (query, email, role) => __awaiter(void 0, void 0, void 0, f
         result = yield sales_model_1.Sales.find(dateFilter).populate("productId");
     }
     else if (role === "user") {
-        result = yield sales_model_1.Sales.find(Object.assign({ email: email }, dateFilter)).populate("productId");
+        result = yield sales_model_1.Sales.find(Object.assign({ userEmail: email }, dateFilter)).populate("productId");
     }
     else {
         throw new AppError_1.default(http_status_1.default.BAD_REQUEST, "Invalid user role");

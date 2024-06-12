@@ -16,7 +16,7 @@ export const createSales = AsyncFun(async (req, res, next) => {
   });
 });
 export const getSales = AsyncFun(async (req, res, next) => {
-  console.log(req.query);
+
   const { email, role } = req.user;
   const result = await getSalesToDb(req.query, email, role);
   sendResponse(res, {

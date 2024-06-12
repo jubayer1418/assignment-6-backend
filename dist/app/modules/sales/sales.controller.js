@@ -27,7 +27,6 @@ exports.createSales = (0, AsyncFun_1.AsyncFun)((req, res, next) => __awaiter(voi
     });
 }));
 exports.getSales = (0, AsyncFun_1.AsyncFun)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req.query);
     const { email, role } = req.user;
     const result = yield (0, sales_service_1.getSalesToDb)(req.query, email, role);
     (0, sendResponse_1.default)(res, {
