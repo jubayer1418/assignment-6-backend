@@ -120,7 +120,7 @@ export const getSalesToDb = async (
   if (role === "manager" || role === "superAdmin") {
     result = await Sales.find(dateFilter).populate("productId");
   } else if (role === "user") {
-    result = await Sales.find({ email: email, ...dateFilter }).populate(
+    result = await Sales.find({ userEmail: email, ...dateFilter }).populate(
       "productId"
     );
   } else {
