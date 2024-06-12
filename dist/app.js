@@ -11,7 +11,7 @@ const notFound_1 = require("./app/middleware/notFound");
 const routes_1 = require("./app/routes");
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: ["http://localhost:5173"],
+    origin: ["https://assignment-6-fronend.vercel.app"],
     credentials: true,
 }));
 app.use(express_1.default.json());
